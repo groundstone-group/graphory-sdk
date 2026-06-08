@@ -1,0 +1,68 @@
+[build-system]
+# Pinned <77 because setuptools 77+ emits PEP 639 license-expression / license-files
+# fields that twine 6.2 rejects as unrecognized. Bump these together when the
+# tooling catches up.
+requires = ["setuptools>=64,<77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "graphory"
+version = "0.1.0"
+description = "Stop your AI from forgetting your business. Python client and CLI for the Graphory cross-AI business memory layer. One graph, every AI, every session."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [
+    {name = "Groundstone Group", email = "hello@graphory.io"},
+]
+keywords = [
+    "graph",
+    "knowledge-graph",
+    "mcp",
+    "ai-memory",
+    "agent-memory",
+    "business-memory",
+    "graphrag",
+    "claude-code",
+    "hermes",
+    "openclaw",
+    "cursor",
+    "chatgpt",
+    "mem0-alternative",
+    "zep-alternative",
+    "cross-ai-memory",
+    "chat-session-memory",
+    "data-layer",
+    "byoc",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Database",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "httpx>=0.24",
+]
+
+[project.scripts]
+graphory = "graphory.cli:main"
+
+[project.urls]
+Homepage = "https://graphory.io"
+Documentation = "https://docs.graphory.io"
+Repository = "https://github.com/groundstone-group/graphory-sdk"
+Changelog = "https://github.com/groundstone-group/graphory-sdk/blob/main/CHANGELOG.md"
+Issues = "https://github.com/groundstone-group/graphory-sdk/issues"
+
+[tool.setuptools.packages.find]
+include = ["graphory*"]

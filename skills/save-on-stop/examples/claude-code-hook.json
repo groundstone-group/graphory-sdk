@@ -1,0 +1,26 @@
+{
+  "_comment": "Add this 'hooks' block to ~/.claude/settings.json (or your project .claude/settings.json) to auto-trigger save-on-stop when a Claude Code session ends. This runs the skill before the session is torn down.",
+  "_install": "cp skills/save-on-stop into ~/.claude/skills/, then merge the 'hooks' key below into your settings.json.",
+
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Use the save-on-stop skill to capture this session into Graphory. Skip if the session was trivial (under 10 substantive turns and no decisions or code changes). If you save, write a one-line confirmation; otherwise stay silent."
+          }
+        ]
+      }
+    ]
+  },
+
+  "_notes": [
+    "The 'Stop' event fires when Claude Code is about to exit the current session.",
+    "The 'prompt' hook lets the model itself decide whether the session is worth saving - this avoids spamming Graphory with throwaway one-liners.",
+    "If you want unconditional saves, replace the prompt with a direct tool-call hook that invokes save_message with a templated body. See https://docs.anthropic.com/claude-code/hooks for the full hook reference.",
+    "The skill itself (skills/save-on-stop/SKILL.md) describes the call shape - the Stop hook only needs to delegate to the skill, not reimplement it.",
+    "Graphory MCP tool reference: https://docs.graphory.io/mcp"
+  ]
+}

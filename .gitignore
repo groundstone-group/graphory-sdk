@@ -1,0 +1,35 @@
+# Python build / cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+build/
+
+# Virtualenvs
+.venv/
+venv/
+env/
+
+# Test / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local secrets
+.env
+.env.local
+*.env
+
+# Local Graphory user config (created by `graphory login`)
+.graphory/
+
+# NOTE: dist/ is intentionally tracked so the published wheel + sdist
+# travel with the source tree. Re-build before tagging a new release.

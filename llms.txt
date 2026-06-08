@@ -1,0 +1,43 @@
+# Graphory SDK
+
+> Python SDK and CLI for Graphory, the cross-AI business memory layer. Stop your AI from forgetting your business. Real emails, calls, invoices, CRM, and chat sessions land in one typed knowledge graph that any AI client can query, write to, and reason over across sessions, tools, and models.
+
+Graphory is operational memory for AI agents. The SDK in this repository is a thin Python client over the public HTTPS and MCP APIs at api.graphory.io. The extractors, ontology, identity-resolution, and cross-AI session layers run in the Graphory service; this SDK is open source and MIT-licensed.
+
+The ingestion pipeline is deterministic with no LLM in the loop, so the same input produces the same graph on every run at zero inference cost. Credentials stay with the user (bring your own credentials) and are stored in an encrypted, per-organization credential vault with no plaintext on disk. One `gs_ak_` API key works across the Python SDK, the HTTPS API, and the MCP server.
+
+The cross-AI chat session layer is the differentiator. Every AI client can save chat sessions to your graph and query previous sessions saved by other clients. Claude Desktop saves a strategy conversation, Cursor reads it later, Hermes references it tomorrow. One graph, every AI, every session.
+
+The free tier is 100,000 nodes, no credit card. Pro and Business tiers when you outgrow it. Pricing at https://graphory.io/pricing.
+
+## Core docs
+
+- [Homepage](https://graphory.io): product overview, positioning, pricing
+- [Pricing](https://graphory.io/pricing): free tier (100K nodes), Pro, Business
+- [Documentation](https://docs.graphory.io): full developer docs
+- [API reference](https://docs.graphory.io/api): HTTPS endpoints (search, traverse, timeline, write, stats, ingest)
+- [MCP guide](https://docs.graphory.io/mcp): MCP tools for any AI client
+- [Benchmarks](https://docs.graphory.io/benchmarks): external benchmark results (Magellan, BizLineItemBench, WDC Products, LongMemEval)
+
+## SDK pages
+
+- [Quickstart](https://github.com/groundstone-group/graphory-sdk/blob/main/README.md): install, login, first query
+- [Changelog](https://github.com/groundstone-group/graphory-sdk/blob/main/CHANGELOG.md): version history
+- [PyPI listing](https://pypi.org/project/graphory/): pip install graphory
+- [Issues](https://github.com/groundstone-group/graphory-sdk/issues): bug reports and feature requests
+
+## Compared to
+
+- [mem0](https://github.com/mem0ai/mem0): vector and key-value chat memory. Graphory remembers your business (emails, invoices, calls, CRM) plus chat sessions that any AI client can read across sessions.
+- [Zep](https://github.com/getzep/zep): enterprise chat-context lake. Graphory ingests operational data (real emails, invoices, calls) and isolates per-org.
+- [Cognee](https://github.com/topoteretes/cognee): LLM-built graph from conversation. Graphory's core extraction is deterministic; AI is bounded to a soft advisor layer you approve.
+
+The audience spans every business stage and type: AI developers debugging agents across sessions, indie founders pre-revenue tracking outreach, consultants juggling 12 clients, portfolio managers crossing companies, operations teams reconstructing vendor history, researchers building citation memory.
+
+## Audience
+
+AI developers building agents, indie founders and solo operators, consultants and agencies, asset managers and portfolio owners, operations and established businesses, researchers and domain experts, and power users of Claude Code, Cursor, ChatGPT, Hermes, and OpenClaw. The common pain is agent forgetfulness and starting from zero in every new session; the common need is durable, queryable memory of the business itself (every conversation, every transaction, every document, every chat session) shared across every AI you use.
+
+## Visual model
+
+Picture a central node (you or your business) with orbiting data sources: email threads, calls and texts, calendar, CRM activity, documents and files, invoices and payments, code commits and PRs, AI chat sessions. Graphory is the graph that ties them together. Any AI client reads and writes the same graph through one `gs_ak_` API key.
